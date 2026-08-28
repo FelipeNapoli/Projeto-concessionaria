@@ -21,5 +21,57 @@
             </nav>
         </div>
     </header>
+
+    <main>
+        <section class="carros-preview">
+            <img src="src/assets/Carro-porsche1.webp" alt="Porsche 718">
+            <img src="src/assets/porsche4.png" alt="Mercedes-AMG">
+            <img src="src/assets/carro-mercedes2.avif" alt="Mercedes-Classe G">
+        </section>
+
+        <form class="form-simulador">
+            <h2 class="form-titulo">Simulador</h2>
+
+            <article class="coluna">
+                <h3>Carro 1</h3>
+                <div class="campo">
+                    <label for="hmh1">KM/H</label>
+                    <input type="number" id="kmh1" name="kmh1">
+                </div>
+                <div class="campo">
+                    <label for="consumo1">Consumo</label>
+                    <input type="number" id="consumo1" name="consumo1">
+                </div>
+            </article>
+
+            <article class="coluna">
+                <h3>Carro 2</h3>
+                <div class="campo">
+                    <label for="kmh2">KM/H</label>
+                    <input type="number" name="kmh2" id="kmh2">
+                </div>
+                <div class="campo">
+                    <label for="consumo2">Consumo</label>
+                    <input type="number" id="consumo2" name="consumo2">
+                </div>
+            </article>
+
+            <article class="form-gerais">
+                <h3>Geral</h3>
+                <div class="campo">
+                    <label for="distancia">Distância</label>
+                    <input type="number" id="distancia" name="distancia">
+                </div>
+                <div class="campo">
+                    <label for="preco-energia">Preço Energia</label>
+                    <input type="number" name="preco-energia" id="preco-energia">
+                </div>
+            </article>
+
+            <button type="button" class="btn-enviar" onclick="salvarCalculo()">Enviar Formulário</button>
+        </form>
+
+        
+    </main>
 </body>
 </html>
