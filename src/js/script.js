@@ -128,7 +128,50 @@ function exibirResultado(d) {
         classeConclusao = 'selo-economico';
         
         tituloConclusao = `${d.carroEconomico} é mais econômico`;
-        
+
         textoConclusao = `Economia de ${d.diferencaPercentual.toFixed(1)}% (R$ ${d.diferencaCusto.toFixed(2)}) em relação ao outro carro, considerando ${d.distancia} km rodados.`;
     }
+
+    container.innerHTML = `
+        <table class="tabela-resultado">
+            <thead>
+                <tr>
+                    <th><img src="src/assets/AUTOVELLE.png" alt="Logo"></th>
+                    <th>Carro 1</th>
+                    <th>Carro 2</th>
+                    <th>Diferença (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Eficiência</td>
+                    <td class="valor">${d.eficiencia1.toFixed(2)} km/kWh</td>
+                    <td class="valor">${d.eficiencia2.toFixed(2)} km/kWh</td>
+                    <td class="valor">${difEficiencia.toFixed(1)}%</td>
+                </tr>
+                <tr>
+                    <td>Autonomia</td>
+                    <td class="valor">${d.autonomia1.toFixed(1)} km</td>
+                    <td class="valor">${d.autonomia2.toFixed(1)} km</td>
+                    <td class="valor">${difAutonomia.toFixed(1)}%</td>
+                </tr>
+                <tr>
+                    <td>Custo Total</td>
+                    <td class="valor">R$ ${d.custoTotal1.toFixed(2)}</td>
+                    <td class="valor">R$ ${d.custoTotal2.toFixed(2)}</td>
+                    <td class="valor">${d.diferencaPercentual.toFixed(1)}%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="faixa-conclusao ${classeConclusao}">
+            <div>
+                <p class="titulo">${tituloConclusao}</p>
+                <p class="texto">${textoConclusao}</p>
+                <span class="selo ${selo(d.resultado1)}">Carro 1: ${d.resultado1}</span>
+                <span class="selo ${selo(d.resultado2)}">Carro 2: ${d.resultado2}</span>
+            </div>
+        </div>
+    `;
 }
+
