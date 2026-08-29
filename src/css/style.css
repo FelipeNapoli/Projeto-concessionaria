@@ -287,15 +287,23 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 60px;
+    gap: 45px;
     max-width: 900px;
     margin: 0 auto 40px;
 }
 
 .carros-preview img {
-    min-width: 130px;
-    width: 100%;
+    max-width: 300px;
+    min-width: 100px;
+    width: 90%;
     filter: drop-shadow(0 8px 12px rgba(0,0,0,0.6));
+}
+
+@media (max-width: 411px) {
+    .carros-preview {
+        display: none;
+    }
+    
 }
 
 .form-simulador {
@@ -404,13 +412,6 @@ footer {
     border: 2px solid #D3AF37;
     border-radius: 16px;
     overflow: hidden;
-}
-
-@media (max-width: 797px) {
-    .carros-preview {
-        flex-wrap: wrap;
-        gap: 20px;
-    }
 }
 
 @media (max-width: 640px) {
