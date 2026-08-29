@@ -18,4 +18,23 @@ function salvarCalculo() {
         alert('Preencha todos os campos com números válidos.');
         return;
     }
+
+    const eficiencia1 = 100 / consumo1;
+    const eficiencia2 = 100 / consumo2;
+
+    const autonomia1 = (capacidade1 / consumo1) * 100;
+    const autonomia2 = (capacidade2 / consumo2) * 100;
+
+    const custoPorKm1 = (consumo1 / 100) * preco;
+    const custoPorKm2 = (consumo2 / 100) * preco;
+
+    const custoTotal1 = custoPorKm1 * distancia;
+    const custoTotal2 = custoPorKm2 * distancia;
+
+    const diferencaCusto = Math.abs(custoTotal1 - custoTotal2);
+    const maiorCusto = Math.max(custoTotal1, custoTotal2);
+
+    const diferencaPercentual =
+        maiorCusto === 0 ? 0 : (diferencaCusto / maiorCusto) * 100;
+
 }
