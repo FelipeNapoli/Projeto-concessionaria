@@ -397,3 +397,139 @@ footer {
         letter-spacing: 3px;
     }
 }
+
+#resultados-cards {
+    max-width: 800px;
+    margin: 40px auto 0;
+    border: 2px solid #D3AF37;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+@media (max-width: 797px) {
+    .carros-preview {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 640px) {
+
+    .form-gerais {
+        gap: 20px;
+    }
+
+    .tabela-resultado {
+        font-size: 12px;
+    }
+
+    .tabela-resultado thead th,
+    .tabela-resultado tbody td {
+        padding: 10px 12px;
+    }
+
+    .legenda-logo {
+        font-size: 16px;
+        letter-spacing: 3px;
+    }
+}
+
+.tabela-resultado {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela-resultado thead {
+    background-color: #000;
+}
+
+.tabela-resultado thead th {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 13px;
+    padding: 16px 20px;
+    text-align: left;
+}
+
+.tabela-resultado thead th:first-child {
+    width: 60px;
+}
+
+.tabela-resultado thead img {
+    height: 26px;
+}
+
+.tabela-resultado tbody {
+    background-color: rgb(24, 24, 24);
+}
+
+.tabela-resultado tbody td {
+    color: #eee;
+    padding: 16px 20px;
+    font-size: 14px;
+    border-top: 1px solid rgba(211, 175, 55, 0.15);
+}
+
+.tabela-resultado tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.tabela-resultado tbody td.valor {
+    color: #D3AF37;
+    font-variant-numeric: tabular-nums;
+}
+
+.faixa-conclusao {
+    display: flex;
+    background: #141414;
+    border: 1px solid #c9a227;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 14px 20px;
+    margin-top: -1px;
+    gap: 10px;
+}
+.faixa-conclusao .titulo {
+    font-weight: bold; 
+    color: #f2f2f2; 
+    margin: 0 0 2px; 
+}
+.faixa-conclusao .texto {
+    font-size: 13px; 
+    color: #b8b8b8; 
+    margin: 0 0 8px; 
+}
+
+.selo {
+    display: inline-block;
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-right: 6px;
+}
+
+.selo-economico { 
+    background: rgba(126,163,63,0.15); 
+    color: #9fd15c; 
+    border: 1px solid 
+    #7ea33f; 
+}
+
+.selo-nao-economico { 
+    background: rgba(217,147,35,0.15); 
+    color: #f0b04f; 
+    border: 1px solid #d99323; 
+}
+
+.selo-empate {
+    background: rgba(201,162,39,0.15); 
+    color: #e8c866; 
+    border: 1px solid #c9a227; 
+}
+
+.selo-nao-compensa { 
+    background: rgba(161,32,32,0.15); 
+    color: #e35a5a; 
+    border: 1px solid #a12020; 
+}
