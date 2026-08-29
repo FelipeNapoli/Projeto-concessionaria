@@ -81,3 +81,55 @@ function salvarCalculo() {
         distancia
     });
 }
+
+function exibirResultado(d) {
+    const container = document.getElementById('resultados-cards');
+    if (!container) return;
+
+    // % de diferença entre dois valores, relativa ao maior (mesma lógica usada no custo)
+    const percentualDiferenca = (a, b) => {
+        const dif = Math.abs(a - b);
+        const maior = Math.max(a, b);
+        return maior === 0 ? 0 : (dif / maior) * 100;
+    };
+
+    const difEficiencia = percentualDiferenca(d.eficiencia1, d.eficiencia2);
+    const difAutonomia = percentualDiferenca(d.autonomia1, d.autonomia2);
+
+    const selo = (resultado) => {
+        if (resultado === 'Econômico') return 'selo-economico';
+        if (resultado === 'Não Econômico') return 'selo-nao-economico';
+        if (resultado === 'Empate') return 'selo-empate';
+        return 'selo-nao-compensa';
+    };
+
+    let classeConclusao;
+    let tituloConclusao;
+    let textoConclusao;
+
+    if (d.resultado1 === 'Não Compensa' || d.resultado2 === 'Não Compensa') {
+        const carroFraco = d.resultado1 === 'Não Compensa' ? 'Carro 1' : 'Carro 2';
+
+        const carroForte = carroFraco === 'Carro 1' ? 'Carro 2' : 'Carro 1';
+
+        classeConclusao = 'selo-nao-compensa';
+
+        tituloConclusao = `${carroFraco} não compensa`;
+
+        textoConclusao = `${carroForte} tem mais eficiência e mais autonomia ao mesmo tempo — não vale a pena escolher o ${carroFraco}.`;
+
+    } else if (d.carroEconomico === 'Empate') {
+        classeConclusao = 'selo-empate';
+
+        tituloConclusao = 'Empate técnico';
+
+        textoConclusao = `Os dois carros custam praticamente o mesmo (R$ ${d.custoTotal1.toFixed(2)}) para rodar ${d.distancia} km.`;
+
+    } else {
+        classeConclusao = 'selo-economico';
+        
+        tituloConclusao = `${d.carroEconomico} é mais econômico`;
+        
+        textoConclusao = `Economia de ${d.diferencaPercentual.toFixed(1)}% (R$ ${d.diferencaCusto.toFixed(2)}) em relação ao outro carro, considerando ${d.distancia} km rodados.`;
+    }
+}
