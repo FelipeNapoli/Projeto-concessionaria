@@ -37,4 +37,47 @@ function salvarCalculo() {
     const diferencaPercentual =
         maiorCusto === 0 ? 0 : (diferencaCusto / maiorCusto) * 100;
 
+    const carro2VenceOsDois = eficiencia2 > eficiencia1 && autonomia2 > autonomia1;
+    const carro1VenceOsDois = eficiencia1 > eficiencia2 && autonomia1 > autonomia2;
+
+    let resultado1;
+    let resultado2;
+    let carroEconomico;
+
+    if (carro2VenceOsDois) {
+        resultado1 = 'Não Compensa';
+        resultado2 = 'Econômico';
+        carroEconomico = 'Carro 2';
+    } else if (carro1VenceOsDois) {
+        resultado1 = 'Econômico';
+        resultado2 = 'Não Compensa';
+        carroEconomico = 'Carro 1';
+    } else if (custoTotal1 < custoTotal2) {
+        resultado1 = 'Econômico';
+        resultado2 = 'Não Econômico';
+        carroEconomico = 'Carro 1';
+    } else if (custoTotal2 < custoTotal1) {
+        resultado1 = 'Não Econômico';
+        resultado2 = 'Econômico';
+        carroEconomico = 'Carro 2';
+    } else {
+        resultado1 = 'Empate';
+        resultado2 = 'Empate';
+        carroEconomico = 'Empate';
+    }
+
+    exibirResultado({
+        eficiencia1,
+        eficiencia2,
+        autonomia1,
+        autonomia2,
+        custoTotal1,
+        custoTotal2,
+        diferencaCusto,
+        diferencaPercentual,
+        resultado1,
+        resultado2,
+        carroEconomico,
+        distancia
+    });
 }
