@@ -86,7 +86,6 @@ function exibirResultado(d) {
     const container = document.getElementById('resultados-cards');
     if (!container) return;
 
-    // % de diferença entre dois valores, relativa ao maior (mesma lógica usada no custo)
     const percentualDiferenca = (a, b) => {
         const dif = Math.abs(a - b);
         const maior = Math.max(a, b);
